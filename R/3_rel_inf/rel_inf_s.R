@@ -72,16 +72,10 @@ bang = exp(rnorm(samples,data$yi[3],data$si[3]))
 act3 = exp(rnorm(samples,data$yi[4],data$si[4]))
 summ = exp(rnorm(samples,data$yi[5],data$si[5]))
 
-# Samples of relative durations. Progression and regression parameters as per Supplementary Table 2.  
+# Samples of relative durations. Subclinical phase represents between 27% and 63% of the time as a prevalent case.
 
-reg_sub = rnorm(samples,0.42,0.01)
-pro_sub = rnorm(samples,0.51,0.09)
-reg_cli = rnorm(samples,1.26,0.18)
-pro_cli1 = 0.7
-pro_cli2 = 0.39
-d_sub = 1/(reg_sub+pro_sub)           
-d_cli = 1/(reg_cli+pro_cli1+pro_cli2)
-rel_dur = d_cli/d_sub
+d = rnorm(1000000,0.45,0.092)
+rel_dur = (1-d)/d
 
 # Estimate of relative infectiousness 
 
