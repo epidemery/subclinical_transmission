@@ -26,16 +26,10 @@ samples = 1000000
 
 quantiles = c(0.025,0.5,0.975)
 
-# Samples of relative durations. Progression and regression parameters as per Supplementary Table 2.  
+# Samples of relative durations. Subclinical phase represents between 27% and 63% of the time as a prevalent case.
 
-reg_sub = rnorm(samples,0.42,0.01)
-pro_sub = rnorm(samples,0.51,0.09)
-reg_cli = rnorm(samples,1.26,0.18)
-pro_cli1 = 0.7
-pro_cli2 = 0.39
-d_sub = 1/(reg_sub+pro_sub)
-d_cli = 1/(reg_cli+pro_cli1+pro_cli2)
-rel_dur = d_cli/d_sub
+d = rnorm(1000000,0.45,0.092)
+rel_dur = (1-d)/d
 
 # Samples of relative infectiousness 
 
